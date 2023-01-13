@@ -1,0 +1,27 @@
+body {
+  font-family: 'Roboto', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.mainTxt {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 10px;
+  box-shadow: -2px 2px 3px rgba(0,0,0,0.5);
+}
+
+.avatar {
+  border-radius: 50px;
+}
+
+.alertBtn {
+  color: black;
+  font-weight: 500;
+  padding: 5px 10px;
+  border: 1px solid grey;
+  background-color: antiquewhite;
+  transition: background-color .4s ease;
+}
+
+.alertBtn:hover {
+    background-color: coral;
+}

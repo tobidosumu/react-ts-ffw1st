@@ -1,3 +1,3 @@
-# react-ts-ffw1st
+# Tic-tac-toe Game
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/react-ts-ffw1st)
+### I'm learning React by building a Tic-tac-toe game

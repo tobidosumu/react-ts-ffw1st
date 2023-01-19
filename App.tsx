@@ -11,25 +11,26 @@ function Square({ value, onSquareClick }) {
 }
 
 export default function Board() {
-  const [xIsNext, setXIsNext] = useState(false)
-  const [squares, setSquares] = useState(Array(9).fill(null))
+  const [xIsNext, setXIsNext] = useState(false);
+  const [squares, setSquares] = useState(Array(9).fill(null));
 
   function handleClick(i) {
-    const nextSquares = squares.slice() // creates a copy of squares array and assign it to nextSquares
+    const nextSquares = squares.slice(); // creates a copy of squares array and assign it to nextSquares
 
-    console.log(squares[i])
+    console.log(squares[i]);
 
-    if (squares[i]) { // return early: prevents a square from updating (changing its value i.e. 'X' or 'O') if a value already exists inside it 
+    if (squares[i]) {
+      // return early: prevents a square from updating (changing its value i.e. 'X' or 'O') if a value already exists inside it
       return;
     }
 
     if (xIsNext) {
-      nextSquares[i] = 'X'
+      nextSquares[i] = 'X';
     } else {
-      nextSquares[i] = 'O'
+      nextSquares[i] = 'O';
     }
-    setSquares(nextSquares)
-    setXIsNext(!xIsNext)
+    setSquares(nextSquares);
+    setXIsNext(!xIsNext);
   }
 
   return (
@@ -51,4 +52,27 @@ export default function Board() {
       </div>
     </div>
   );
+}
+
+function determineWinner(squares) {
+  const combinations = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+  ];
+
+  for (let i; i < combinations.length; i++) {
+    const [a, b, c] = squares[i];
+
+    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+      return squares[a];
+    }
+  }
+
+  return null;
 }

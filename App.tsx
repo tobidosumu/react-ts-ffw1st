@@ -15,9 +15,13 @@ export default function Board() {
   const [squares, setSquares] = useState(Array(9).fill(null))
 
   function handleClick(i) {
-    const nextSquares = squares.slice() // creates a copy of squares array
+    const nextSquares = squares.slice() // creates a copy of squares array and assign it to nextSquares
 
     console.log(squares[i])
+
+    if (squares[i]) { // return early: prevents a square from updating (changing its value i.e. 'X' or 'O') if a value already exists inside it 
+      return;
+    }
 
     if (xIsNext) {
       nextSquares[i] = 'X'
